@@ -30,12 +30,16 @@
     "commitlint": "commitlint -e $GIT_PARAMS"
   },
   "lint-staged": {
-    ".src/**/*.{ts,js}": [
+    ".src/**/*.{ts, tsx, js, jsx}": [
       "yarn type-check",
       "yarn format:check",
-      "yarn lint",
-      "yarn commitlint"
+      "yarn lint"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && yarn commitlint"
+    }
   },
   "eslintConfig": {
     "extends": [
