@@ -27,7 +27,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check './**/*.{ts,tsx}'",
     "lint": "eslint --ext .jsx,.js,.tsx,.ts src/",
-    "commitlint": "commitlint -e $GIT_PARAMS"
+    "commitmsg": "commitlint -e $GIT_PARAMS"
   },
   "lint-staged": {
     ".src/**/*.{ts, tsx, js, jsx}": [
