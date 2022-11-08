@@ -36,11 +36,6 @@
       "yarn lint"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged && yarn commitlint"
-    }
-  },
   "eslintConfig": {
     "extends": [
       "react-app",
