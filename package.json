@@ -23,7 +23,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write .",
-    "format:check": "prettier --check './**/*.{ts,tsx}'"
+    "format:check": "prettier --check './**/*.{ts,tsx}'",
+    "lint": "eslint --ext .jsx,.js,.tsx,.ts src/"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +46,11 @@
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^3.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.31.10",
     "prettier": "^2.7.1"
   }
 }
