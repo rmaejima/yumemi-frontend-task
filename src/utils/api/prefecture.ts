@@ -6,13 +6,13 @@ import { Prefecture } from 'types/resas/prefecture';
 
 import { requestResasGet } from './axios';
 
-type prefecturesResponse = {
+type PrefecturesResponse = {
   message: string | null;
   result: Prefecture[];
 };
 
 export const getPrefectures = async (): Promise<Prefecture[]> => {
-  const { data } = await requestResasGet<prefecturesResponse>(
+  const { data } = await requestResasGet<PrefecturesResponse>(
     '/api/v1/prefectures',
   );
 
