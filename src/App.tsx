@@ -1,13 +1,13 @@
 import React from 'react';
 
-import styled from 'styled-components';
+import { Header } from 'components/common/Header';
 
-function App() {
-  return <ColorText>App template</ColorText>;
-}
+const App: React.FC = () => {
+  return (
+    <div>
+      <Header />
+    </div>
+  );
+};
 
 export default App;
-
-const ColorText = styled.p`
-  color: ${(p) => p.theme.colors.primary[500]};
-`;
