@@ -2,8 +2,10 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+/** ヘッダーの高さ */
 export const HEADER_HEIGHT = '64px';
 
+/** ヘッダーコンポーネント */
 export const Header: React.FC = () => {
   return (
     <Container>
