@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 
@@ -22,7 +22,7 @@ export const PrefectureSelector: React.FC<Props> = ({
 
   useEffect(() => {
     onChangeSelectAll(checkedSelectAll);
-  }, [checkedSelectAll]);
+  }, [checkedSelectAll, onChangeSelectAll]);
 
   return (
     <Container>
