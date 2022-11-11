@@ -1,12 +1,17 @@
 import React from 'react';
 
+import TopPage from 'pages';
 import ReactDOM from 'react-dom/client';
 import 'ress';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { SWRConfig } from 'swr';
 
 import * as theme from 'utils/theme';
 
-import App from './App';
+const swrConfig: React.ComponentProps<typeof SWRConfig>['value'] = {
+  revalidateOnFocus: false,
+  suspense: true,
+};
 
 const GlobalStyle = createGlobalStyle`
       html,
@@ -45,10 +50,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <ThemeProvider theme={theme}>
-    <GlobalStyle />
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-    ,
+    <SWRConfig value={swrConfig}>
+      <GlobalStyle />
+      <React.StrictMode>
+        <TopPage />
+      </React.StrictMode>
+    </SWRConfig>
   </ThemeProvider>,
 );
