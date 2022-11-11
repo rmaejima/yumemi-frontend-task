@@ -22,7 +22,7 @@ const options: Highcharts.Options = {
     text: '',
   },
   lang: {
-    noData: 'データがありません',
+    noData: '都道府県を選択してください',
   },
   noData: {
     style: {
