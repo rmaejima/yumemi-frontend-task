@@ -13,6 +13,7 @@ type Props = {
   className?: string;
 };
 
+/** 都道府県選択セクションコンポーネント */
 export const PrefectureSelectorSection: React.FC<Props> = ({
   onChangeSelection,
   className,

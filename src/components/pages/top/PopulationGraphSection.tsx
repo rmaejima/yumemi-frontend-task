@@ -12,6 +12,7 @@ interface Props {
   prefectures: Prefecture[];
 }
 
+/** 人口構成グラフセクションコンポーネント */
 export const PopulationGraphSection: React.FC<Props> = ({ prefectures }) => {
   const { data } = usePrefecturePopulations(prefectures);
   return (
