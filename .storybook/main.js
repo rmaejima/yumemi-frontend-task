@@ -2,13 +2,6 @@ module.exports = {
   stories: [
     {
       directory: '../src/stories',
-      titlePrefix: 'Documents',
-      files: '**/*.stories.mdx',
-    },
-    {
-      directory: '../src/stories',
-      titlePrefix: 'Components',
-      files: '**/*.stories.@(js|jsx|ts|tsx)',
     },
   ],
   addons: [
