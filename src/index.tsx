@@ -1,13 +1,12 @@
 import React from 'react';
 
+import TopPage from 'pages';
 import ReactDOM from 'react-dom/client';
 import 'ress';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { SWRConfig } from 'swr';
 
 import * as theme from 'utils/theme';
-
-import App from './App';
 
 const swrConfig: React.ComponentProps<typeof SWRConfig>['value'] = {
   revalidateOnFocus: false,
@@ -54,7 +53,7 @@ root.render(
     <SWRConfig value={swrConfig}>
       <GlobalStyle />
       <React.StrictMode>
-        <App />
+        <TopPage />
       </React.StrictMode>
     </SWRConfig>
   </ThemeProvider>,

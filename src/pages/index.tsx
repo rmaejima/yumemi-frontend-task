@@ -8,7 +8,7 @@ import { PrefectureSelectorSection } from 'components/pages/top/PrefectureSelect
 
 import { Prefecture } from 'types/resas/prefecture';
 
-const App: React.FC = () => {
+const TopPage: React.FC = () => {
   const [selectedPrefecture, setSelectedPrefecture] = useState<Prefecture[]>(
     [],
   );
@@ -35,7 +35,7 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default TopPage;
 
 const PageContainer = styled.div`
   max-width: ${(p) => p.theme.breaks.lg};
