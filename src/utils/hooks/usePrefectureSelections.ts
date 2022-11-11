@@ -19,7 +19,7 @@ export const usePrefectureSelections = () => {
   useEffect(() => {
     if (!prefectures) return;
 
-    const selections = prefectures.map((prefecture) => ({
+    const selections: PrefectureSelection[] = prefectures.map((prefecture) => ({
       ...prefecture,
       selected: false,
     }));
@@ -41,5 +41,25 @@ export const usePrefectureSelections = () => {
     [setPrefectureSelections],
   );
 
-  return { prefectureSelections, togglePrefectureSelection };
+  /** 全選択する関数 */
+  const selectAll = useCallback(() => {
+    setPrefectureSelections((prevState) =>
+      prevState.map((p) => ({ ...p, selected: true })),
+    );
+    console.log(prefectureSelections);
+  }, [setPrefectureSelections]);
+
+  /** 全解除する関数 */
+  const unSelectAll = useCallback(() => {
+    setPrefectureSelections((prevState) =>
+      prevState.map((p) => ({ ...p, selected: false })),
+    );
+  }, [setPrefectureSelections]);
+
+  return {
+    prefectureSelections,
+    togglePrefectureSelection,
+    selectAll,
+    unSelectAll,
+  };
 };
