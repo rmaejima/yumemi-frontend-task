@@ -4,6 +4,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import styled from 'styled-components';
 
 import { BaseLayout } from 'components/common/BaseLayout';
+import { LoadingSpinner } from 'components/common/LoadingSpinner';
 import { PopulationGraphSection } from 'components/pages/top/PopulationGraphSection';
 import { PrefectureSelectorSection } from 'components/pages/top/PrefectureSelectorSection';
 
@@ -20,7 +21,13 @@ const TopPage: React.FC = () => {
       <PageContainer>
         <SectionWrapper>
           <ErrorBoundary fallback={<p>error</p>}>
-            <Suspense fallback={<p>now loading</p>}>
+            <Suspense
+              fallback={
+                <LoadingSpinnerContainer>
+                  <LoadingSpinner />
+                </LoadingSpinnerContainer>
+              }
+            >
               <PrefectureSelectorSection
                 onChangeSelection={setSelectedPrefectures}
               />
@@ -29,7 +36,13 @@ const TopPage: React.FC = () => {
         </SectionWrapper>
         <SectionWrapper>
           <ErrorBoundary fallback={<p>error</p>}>
-            <Suspense fallback={<p>now loading</p>}>
+            <Suspense
+              fallback={
+                <LoadingSpinnerContainer>
+                  <LoadingSpinner />
+                </LoadingSpinnerContainer>
+              }
+            >
               <PopulationGraphSection prefectures={selectedPrefectures} />
             </Suspense>
           </ErrorBoundary>
@@ -49,4 +62,10 @@ const PageContainer = styled.div`
 
 const SectionWrapper = styled.div`
   margin-bottom: 2rem;
+`;
+
+const LoadingSpinnerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 4rem;
 `;
