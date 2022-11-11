@@ -1,8 +1,8 @@
 import React from 'react';
 
-import TopPage from 'pages';
 import ReactDOM from 'react-dom/client';
 import 'ress';
+import { Router } from 'router';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { SWRConfig } from 'swr';
 
@@ -53,7 +53,7 @@ root.render(
     <SWRConfig value={swrConfig}>
       <GlobalStyle />
       <React.StrictMode>
-        <TopPage />
+        <Router />
       </React.StrictMode>
     </SWRConfig>
   </ThemeProvider>,
