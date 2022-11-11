@@ -21,7 +21,7 @@ type PopulationResponseResult = {
   data: {
     label: string;
     data: Population[];
-  };
+  }[];
 };
 
 /** 都道府県の年単位の人口構成を取得する関数 */
@@ -31,7 +31,9 @@ export const getPopulation = async (
   const { data } = await requestResasGet<PopulationResponse>(
     `/api/v1/population/composition/perYear?cityCode=-&prefCode=${prefCode}`,
   );
-  const population = data.result.data.data;
+
+  const population =
+    data.result.data.find((data) => data.label === '総人口')?.data ?? [];
 
   return population;
 };
