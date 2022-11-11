@@ -8,6 +8,7 @@ import { PrefectureSelectorSection } from 'components/pages/top/PrefectureSelect
 
 import { Prefecture } from 'types/resas/prefecture';
 
+/** トップページコンポーネント */
 const TopPage: React.FC = () => {
   const [selectedPrefecture, setSelectedPrefecture] = useState<Prefecture[]>(
     [],
