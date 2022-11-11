@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 
@@ -9,15 +9,31 @@ import { PrefectureSelection } from 'utils/hooks/usePrefectureSelections';
 type Props = {
   prefectureSelections: PrefectureSelection[];
   onChangeSelection: (prefCode: number) => void;
+  onChangeSelectAll: (checked: boolean) => void;
 };
 
 /** 都道府県選択コンポーネント */
 export const PrefectureSelector: React.FC<Props> = ({
   prefectureSelections,
   onChangeSelection,
+  onChangeSelectAll,
 }) => {
+  const [checkedSelectAll, setCheckedSelectAll] = useState(false);
+
+  useEffect(() => {
+    onChangeSelectAll(checkedSelectAll);
+  }, [checkedSelectAll]);
+
   return (
     <Container>
+      <CheckBox
+        key={'select_all'}
+        id={`prefecture_selection__select_all`}
+        name={'すべて'}
+        checked={checkedSelectAll}
+        onChange={(e) => setCheckedSelectAll(e.target.checked)}
+        label={'すべて'}
+      />
       {prefectureSelections.map((pref) => (
         <CheckBox
           key={pref.prefCode}

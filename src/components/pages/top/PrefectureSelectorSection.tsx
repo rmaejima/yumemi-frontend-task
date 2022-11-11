@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 
 import styled from 'styled-components';
 
@@ -18,12 +18,27 @@ export const PrefectureSelectorSection: React.FC<Props> = ({
   onChangeSelection,
   className,
 }) => {
-  const { prefectureSelections, togglePrefectureSelection } =
-    usePrefectureSelections();
+  const {
+    prefectureSelections,
+    togglePrefectureSelection,
+    selectAll,
+    unSelectAll,
+  } = usePrefectureSelections();
 
   const selectedPrefecture = useMemo(
     () => prefectureSelections.filter((pref) => pref.selected === true),
     [prefectureSelections],
+  );
+
+  const onChangeSelectAll = useCallback(
+    (checked: boolean) => {
+      if (checked) {
+        selectAll();
+      } else {
+        unSelectAll();
+      }
+    },
+    [selectAll, unSelectAll],
   );
 
   useEffect(() => {
@@ -35,6 +50,7 @@ export const PrefectureSelectorSection: React.FC<Props> = ({
       <PrefectureSelector
         prefectureSelections={prefectureSelections}
         onChangeSelection={togglePrefectureSelection}
+        onChangeSelectAll={onChangeSelectAll}
       />
     </section>
   );
