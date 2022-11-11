@@ -4,12 +4,12 @@ import styled, { keyframes } from 'styled-components';
 
 import { colors } from 'utils/theme';
 
-interface Props {
+export type Props = {
   size?: string;
   color?: string;
   strokeWidth?: string;
   className?: string;
-}
+};
 export const LoadingSpinner: React.FC<Props> = ({
   size = '1rem',
   color = colors.gray[500],

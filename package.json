@@ -101,6 +101,7 @@
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "prop-types": "^15.8.1",
+    "storybook-addon-styled-component-theme": "^2.0.0",
     "styled-components": "^5.3.6",
     "webpack": "^5.74.0"
   }
