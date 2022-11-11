@@ -2,7 +2,8 @@ import { useCallback } from 'react';
 
 import useSWR from 'swr';
 
-import { Population } from 'types/resas/population';
+import { Population, PrefecturePopulations } from 'types/resas/population';
+import { Prefecture } from 'types/resas/prefecture';
 
 import { requestResasGet } from './axios';
 
@@ -53,5 +54,29 @@ export const usePopulation = (prefCode: number) => {
     data,
     error,
     refetchPopulation,
+  };
+};
+
+/** 複数都道府県の年単位の人口構成を取得するフック */
+export const usePrefecturePopulations = (prefectures: Prefecture[]) => {
+  const { data, error, mutate } = useSWR(
+    prefectures.map((pref) => pref.prefCode),
+    async (): Promise<PrefecturePopulations[]> =>
+      Promise.all(
+        prefectures.map(async (pref) => {
+          const populations = await getPopulation(pref.prefCode);
+          return { ...pref, populations: populations };
+        }),
+      ),
+  );
+
+  const refetchPrefecturePopulations = useCallback(() => {
+    mutate();
+  }, [mutate]);
+
+  return {
+    data,
+    error,
+    refetchPrefecturePopulations,
   };
 };
