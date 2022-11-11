@@ -4,10 +4,11 @@ module.exports = {
     es2021: true,
   },
   extends: [
+    'prettier',
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -18,7 +19,21 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint'],
-  rules: {},
+  rules: {
+    'react-hooks/exhaustive-deps': 'warn',
+    'no-console': [
+      'warn',
+      {
+        allow: ['warn', 'error'],
+      },
+    ],
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      {
+        ignoreRestSiblings: true,
+      },
+    ],
+  },
   settings: {
     react: {
       version: 'detect',

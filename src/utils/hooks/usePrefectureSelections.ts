@@ -46,7 +46,6 @@ export const usePrefectureSelections = () => {
     setPrefectureSelections((prevState) =>
       prevState.map((p) => ({ ...p, selected: true })),
     );
-    console.log(prefectureSelections);
   }, [setPrefectureSelections]);
 
   /** 全解除する関数 */

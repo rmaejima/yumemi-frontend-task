@@ -43,7 +43,8 @@ export const PrefectureSelectorSection: React.FC<Props> = ({
 
   useEffect(() => {
     onChangeSelection(selectedPrefecture);
-  }, [selectedPrefecture]);
+  }, [onChangeSelection, selectedPrefecture]);
+
   return (
     <section className={className}>
       <SectionTitle>都道府県</SectionTitle>
