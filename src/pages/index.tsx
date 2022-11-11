@@ -1,23 +1,19 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useState } from 'react';
 
 import { ErrorBoundary } from 'react-error-boundary';
 import styled from 'styled-components';
 
 import { BaseLayout } from 'components/common/BaseLayout';
+import { PopulationGraphSection } from 'components/pages/top/PopulationGraphSection';
 import { PrefectureSelectorSection } from 'components/pages/top/PrefectureSelectorSection';
 
 import { Prefecture } from 'types/resas/prefecture';
 
 /** トップページコンポーネント */
 const TopPage: React.FC = () => {
-  const [selectedPrefecture, setSelectedPrefecture] = useState<Prefecture[]>(
+  const [selectedPrefectures, setSelectedPrefectures] = useState<Prefecture[]>(
     [],
   );
-
-  // TODO: 確認用のため削除
-  useEffect(() => {
-    console.log(selectedPrefecture);
-  }, [selectedPrefecture]);
 
   return (
     <BaseLayout>
@@ -26,8 +22,15 @@ const TopPage: React.FC = () => {
           <ErrorBoundary fallback={<p>error</p>}>
             <Suspense fallback={<p>now loading</p>}>
               <PrefectureSelectorSection
-                onChangeSelection={setSelectedPrefecture}
+                onChangeSelection={setSelectedPrefectures}
               />
+            </Suspense>
+          </ErrorBoundary>
+        </SectionWrapper>
+        <SectionWrapper>
+          <ErrorBoundary fallback={<p>error</p>}>
+            <Suspense fallback={<p>now loading</p>}>
+              <PopulationGraphSection prefectures={selectedPrefectures} />
             </Suspense>
           </ErrorBoundary>
         </SectionWrapper>
