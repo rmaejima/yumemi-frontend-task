@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
-const RESAS_API_BASE_URL = process.env.REACT_APP_RESAS_API_BASE_URL;
+const RESAS_API_BASE_URL = 'https://opendata.resas-portal.go.jp';
 const RESAS_API_KEY = process.env.REACT_APP_RESAS_API_KEY;
 
 const setResasOptions = (options: AxiosRequestConfig): AxiosRequestConfig => {
