@@ -6,7 +6,7 @@ import { CheckBox } from 'components/common/CheckBox';
 
 import { PrefectureSelection } from 'utils/hooks/usePrefectureSelections';
 
-type Props = {
+export type Props = {
   prefectureSelections: PrefectureSelection[];
   onChangeSelection: (prefCode: number) => void;
   onChangeSelectAll: (checked: boolean) => void;
@@ -18,6 +18,7 @@ export const PrefectureSelector: React.FC<Props> = ({
   onChangeSelection,
   onChangeSelectAll,
 }) => {
+  console.log(JSON.stringify(prefectureSelections));
   const [checkedSelectAll, setCheckedSelectAll] = useState(false);
 
   useEffect(() => {
