@@ -18,7 +18,6 @@ export const PrefectureSelector: React.FC<Props> = ({
   onChangeSelection,
   onChangeSelectAll,
 }) => {
-  console.log(JSON.stringify(prefectureSelections));
   const [checkedSelectAll, setCheckedSelectAll] = useState(false);
 
   useEffect(() => {
