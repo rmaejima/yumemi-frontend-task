@@ -75,15 +75,17 @@ export const PopulationGraph: React.FC<Props> = ({ prefecturePopulations }) => {
       return [{ data: [], showInLegend: false }];
     }
 
-    return prefecturePopulations.map((pref) => ({
-      id: pref.prefCode,
-      index: pref.prefCode,
-      name: pref.prefName,
-      data: pref.populations
-        .filter((p) => p.year >= MIN_YEAR && p.year <= MAX_YEAR)
-        .map((p) => [p.year, p.value]),
-      showInLegend: true,
-    }));
+    return prefecturePopulations.map(
+      (pref): Partial<Highcharts.SeriesOptionsType> => ({
+        id: pref.prefCode.toString(),
+        index: pref.prefCode,
+        name: pref.prefName,
+        data: pref.populations
+          .filter((p) => p.year >= MIN_YEAR && p.year <= MAX_YEAR)
+          .map((p) => [p.year, p.value]),
+        showInLegend: true,
+      }),
+    );
   }, [prefecturePopulations]);
 
   return (
