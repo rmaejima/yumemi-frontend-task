@@ -1,4 +1,4 @@
-import { ResasErrorResponse } from 'types/resas';
+import { ResasErrorResponse } from 'schemas/resas';
 
 export const handleResasApiError = (error: ResasErrorResponse) => {
   switch (error.statusCode) {

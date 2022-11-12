@@ -7,7 +7,7 @@ import {
   Prefecture,
   PrefecturePopulations,
   ResasErrorResponse,
-} from 'types/resas';
+} from 'schemas/resas';
 
 import { requestResasGet } from './axios';
 import { handleResasApiError } from './errorHandler';
