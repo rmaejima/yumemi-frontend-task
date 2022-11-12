@@ -11,6 +11,13 @@ import { PrefecturePopulations } from 'schemas/resas';
 const MIN_YEAR = 1980;
 const MAX_YEAR = new Date().getFullYear();
 
+Highcharts.setOptions({
+  lang: {
+    thousandsSep: ',',
+    numericSymbols: ['千'],
+  },
+});
+
 /** グラフオプション */
 const options: Highcharts.Options = {
   chart: {
