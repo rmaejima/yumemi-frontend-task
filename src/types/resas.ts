@@ -14,3 +14,10 @@ export type Prefecture = {
 export type PrefecturePopulations = Prefecture & {
   populations: Population[];
 };
+
+/** Resas APIのエラーレスポンスI/F */
+export type ResasErrorResponse = {
+  statusCode: string;
+  message: string;
+  description: string;
+};
