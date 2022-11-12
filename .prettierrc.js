@@ -10,6 +10,7 @@ module.exports = {
     '^utils/(.*)$',
     '^schemas/(.*)$',
     '^types/(.*)$',
+    '^stories/(.*)$',
     '^[./]',
   ],
   importOrderSeparation: true,
