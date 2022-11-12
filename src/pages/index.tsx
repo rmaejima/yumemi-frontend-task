@@ -8,7 +8,7 @@ import { LoadingSpinner } from 'components/common/LoadingSpinner';
 import { PopulationGraphSection } from 'components/pages/top/PopulationGraphSection';
 import { PrefectureSelectorSection } from 'components/pages/top/PrefectureSelectorSection';
 
-import { Prefecture } from 'types/resas/prefecture';
+import { Prefecture } from 'types/resas';
 
 /** トップページコンポーネント */
 const TopPage: React.FC = () => {

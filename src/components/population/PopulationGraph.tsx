@@ -6,7 +6,7 @@ import NoDataToDisplay from 'highcharts/modules/no-data-to-display';
 
 import { colors } from 'utils/theme';
 
-import { PrefecturePopulations } from 'types/resas/population';
+import { PrefecturePopulations } from 'types/resas';
 
 const MIN_YEAR = 1980;
 const MAX_YEAR = new Date().getFullYear();

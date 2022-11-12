@@ -2,8 +2,12 @@ import { useCallback } from 'react';
 
 import useSWR from 'swr';
 
-import { Population, PrefecturePopulations } from 'types/resas/population';
-import { Prefecture } from 'types/resas/prefecture';
+import {
+  Population,
+  Prefecture,
+  PrefecturePopulations,
+  ResasErrorResponse,
+} from 'types/resas';
 
 import { requestResasGet } from './axios';
 

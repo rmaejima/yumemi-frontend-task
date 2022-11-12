@@ -6,7 +6,7 @@ import { PopulationGraph } from 'components/population/PopulationGraph';
 
 import { usePrefecturePopulations } from 'utils/api/population';
 
-import { Prefecture } from 'types/resas/prefecture';
+import { Prefecture } from 'types/resas';
 
 interface Props {
   prefectures: Prefecture[];

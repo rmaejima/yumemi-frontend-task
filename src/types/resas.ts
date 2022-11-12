@@ -1,9 +1,13 @@
-import { Prefecture } from './prefecture';
-
 /** 人口構成I/F */
 export type Population = {
   year: number;
   value: number;
+};
+
+/** 都道府県I/F */
+export type Prefecture = {
+  prefCode: number;
+  prefName: string;
 };
 
 /** 県と人口構成I/F */

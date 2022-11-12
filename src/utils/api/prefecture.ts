@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 
 import useSWR from 'swr';
 
-import { Prefecture } from 'types/resas/prefecture';
+import { Prefecture, ResasErrorResponse } from 'types/resas';
 
 import { requestResasGet } from './axios';
 
