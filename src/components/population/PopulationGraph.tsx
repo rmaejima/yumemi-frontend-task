@@ -42,28 +42,19 @@ const options: Highcharts.Options = {
     offset: 0,
     title: {
       text: '年度',
-      align: 'high',
-      textAlign: 'left',
-      rotation: 0,
-      offset: 0,
-      margin: 0,
-      y: 30,
-      x: -27,
+    },
+    labels: {
+      format: '{text}年',
     },
   },
   yAxis: {
     visible: true,
     tickPosition: 'inside',
-    offset: 0,
     title: {
       text: '人口数',
-      align: 'high',
-      textAlign: 'left',
-      rotation: 0,
-      offset: 0,
-      margin: 0,
-      y: -20,
-      x: -47,
+    },
+    labels: {
+      format: '{text}人',
     },
   },
 };
