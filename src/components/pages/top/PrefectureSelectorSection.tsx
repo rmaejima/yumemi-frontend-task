@@ -6,7 +6,7 @@ import { PrefectureSelector } from 'components/prefecture/PrefectureSelector';
 
 import { usePrefectureSelections } from 'utils/hooks/usePrefectureSelections';
 
-import { Prefecture } from 'types/resas/prefecture';
+import { Prefecture } from 'schemas/resas';
 
 type Props = {
   onChangeSelection: (prefecture: Prefecture[]) => void;

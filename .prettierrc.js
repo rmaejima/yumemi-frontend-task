@@ -8,6 +8,7 @@ module.exports = {
     '^components/(.*)$',
     '^contexts/(.*)$',
     '^utils/(.*)$',
+    '^schemas/(.*)$',
     '^types/(.*)$',
     '^[./]',
   ],

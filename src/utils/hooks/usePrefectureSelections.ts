@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { usePrefectures } from 'utils/api/prefecture';
 
-import { Prefecture } from 'types/resas/prefecture';
+import { Prefecture } from 'schemas/resas';
 
 /** 都道府県選択I/F */
 export type PrefectureSelection = Prefecture & {
