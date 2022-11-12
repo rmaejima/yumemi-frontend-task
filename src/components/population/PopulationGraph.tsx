@@ -11,6 +11,13 @@ import { PrefecturePopulations } from 'schemas/resas';
 const MIN_YEAR = 1980;
 const MAX_YEAR = new Date().getFullYear();
 
+Highcharts.setOptions({
+  lang: {
+    thousandsSep: ',',
+    numericSymbols: ['千'],
+  },
+});
+
 /** グラフオプション */
 const options: Highcharts.Options = {
   chart: {
@@ -31,32 +38,26 @@ const options: Highcharts.Options = {
       color: colors.text.base,
     },
   },
+  tooltip: {
+    headerFormat: '<b>{series.name}: {point.x}年</b><br />',
+    pointFormat: '{point.y}人',
+  },
   xAxis: {
-    offset: 0,
     title: {
       text: '年度',
-      align: 'high',
-      textAlign: 'left',
-      rotation: 0,
-      offset: 0,
-      margin: 0,
-      y: 30,
-      x: -27,
+    },
+    labels: {
+      format: '{text}年',
     },
   },
   yAxis: {
     visible: true,
     tickPosition: 'inside',
-    offset: 0,
     title: {
       text: '人口数',
-      align: 'high',
-      textAlign: 'left',
-      rotation: 0,
-      offset: 0,
-      margin: 0,
-      y: -20,
-      x: -47,
+    },
+    labels: {
+      format: '{text}人',
     },
   },
 };
@@ -74,15 +75,17 @@ export const PopulationGraph: React.FC<Props> = ({ prefecturePopulations }) => {
       return [{ data: [], showInLegend: false }];
     }
 
-    return prefecturePopulations.map((pref) => ({
-      id: pref.prefCode,
-      index: pref.prefCode,
-      name: pref.prefName,
-      data: pref.populations
-        .filter((p) => p.year >= MIN_YEAR && p.year <= MAX_YEAR)
-        .map((p) => [p.year, p.value]),
-      showInLegend: true,
-    }));
+    return prefecturePopulations.map(
+      (pref): Partial<Highcharts.SeriesOptionsType> => ({
+        id: pref.prefCode.toString(),
+        index: pref.prefCode,
+        name: pref.prefName,
+        data: pref.populations
+          .filter((p) => p.year >= MIN_YEAR && p.year <= MAX_YEAR)
+          .map((p) => [p.year, p.value]),
+        showInLegend: true,
+      }),
+    );
   }, [prefecturePopulations]);
 
   return (
