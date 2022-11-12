@@ -64,7 +64,7 @@ const options: Highcharts.Options = {
 
 NoDataToDisplay(Highcharts);
 
-type Props = {
+export type Props = {
   prefecturePopulations: PrefecturePopulations[];
 };
 
