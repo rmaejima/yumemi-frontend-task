@@ -4,6 +4,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import styled from 'styled-components';
 
 import { BaseLayout } from 'components/common/BaseLayout';
+import { ErrorFallback } from 'components/common/ErrorFallback';
 import { LoadingSpinner } from 'components/common/LoadingSpinner';
 import { PopulationGraphSection } from 'components/pages/top/PopulationGraphSection';
 import { PrefectureSelectorSection } from 'components/pages/top/PrefectureSelectorSection';
@@ -20,7 +21,7 @@ const TopPage: React.FC = () => {
     <BaseLayout>
       <PageContainer>
         <SectionWrapper>
-          <ErrorBoundary fallback={<p>error</p>}>
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
             <Suspense
               fallback={
                 <LoadingSpinnerContainer>
@@ -35,7 +36,7 @@ const TopPage: React.FC = () => {
           </ErrorBoundary>
         </SectionWrapper>
         <SectionWrapper>
-          <ErrorBoundary fallback={<p>error</p>}>
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
             <Suspense
               fallback={
                 <LoadingSpinnerContainer>
