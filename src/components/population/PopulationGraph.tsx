@@ -38,8 +38,11 @@ const options: Highcharts.Options = {
       color: colors.text.base,
     },
   },
+  tooltip: {
+    headerFormat: '<b>{series.name}: {point.x}年</b><br />',
+    pointFormat: '{point.y}人',
+  },
   xAxis: {
-    offset: 0,
     title: {
       text: '年度',
     },
