@@ -5,6 +5,7 @@ import useSWR from 'swr';
 import { Prefecture, ResasErrorResponse } from 'types/resas';
 
 import { requestResasGet } from './axios';
+import { handleResasApiError } from './errorHandler';
 
 /**
  *  都道府県一覧APIレスポンスI/F
@@ -16,17 +17,22 @@ type PrefecturesResponse = {
 };
 
 /** 都道府県一覧取得する関数 */
-export const getPrefectures = async (): Promise<Prefecture[]> => {
-  const { data } = await requestResasGet<PrefecturesResponse>(
-    '/api/v1/prefectures',
-  );
+export const getPrefectures = async (): Promise<Prefecture[] | undefined> => {
+  const { data } = await requestResasGet<
+    PrefecturesResponse | ResasErrorResponse
+  >('/api/v1/prefectures');
+
+  if ('statusCode' in data) {
+    handleResasApiError(data);
+    return;
+  }
 
   return data.result;
 };
 
 /** 都道府県一覧取得フック */
 export const usePrefectures = () => {
-  const { data, error, mutate } = useSWR('/api/v1/prefectures', getPrefectures);
+  const { data, mutate } = useSWR('/api/v1/prefectures', getPrefectures);
 
   const refetchPrefectures = useCallback(() => {
     mutate();
@@ -34,7 +40,6 @@ export const usePrefectures = () => {
 
   return {
     data,
-    error,
     refetchPrefectures,
   };
 };
