@@ -13,6 +13,10 @@
 - CommitLint
 - zod
 
+## スクリーンショット
+
+![Kapture 2022-11-13 at 22 29 25](https://user-images.githubusercontent.com/82492270/201524264-13384ec1-5102-4a92-802a-ecdd1d5b29f8.gif)
+
 ## 環境構築
 
 1. RESAS API の API キーを取得する。 (https://opendata.resas-portal.go.jp/)
