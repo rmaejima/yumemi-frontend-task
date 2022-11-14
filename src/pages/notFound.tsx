@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { BaseLayout } from 'components/common/BaseLayout';
 
+/** 404 ページコンポーネント */
 export const NotFoundPage: React.FC = () => {
   return (
     <BaseLayout>

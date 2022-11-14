@@ -8,6 +8,7 @@ type Props = {
   children?: React.ReactNode;
 };
 
+/** 基盤レイアウトコンポーネント */
 export const BaseLayout: React.FC<Props> = ({ children }) => {
   return (
     <Container>

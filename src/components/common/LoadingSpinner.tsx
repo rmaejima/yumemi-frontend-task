@@ -10,6 +10,8 @@ export type Props = {
   strokeWidth?: string;
   className?: string;
 };
+
+/** ローディングスピナーコンポーネント */
 export const LoadingSpinner: React.FC<Props> = ({
   size = '1rem',
   color = colors.gray[500],
