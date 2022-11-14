@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-export type Props = React.ComponentProps<'input'> & {
+export type Props = Omit<React.ComponentProps<'input'>, 'type'> & {
   label: string;
 };
 
