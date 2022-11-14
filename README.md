@@ -2,7 +2,7 @@
 
 ## 課題提出記載欄
 
-- 閲覧 URL: https://yumemi-frontend-task-three.vercel.app/
+- 閲覧 URL: https://yumemi-frontend-task-ryo-maejii.vercel.app/
 - 課題合計時間: 約 20 時間
 - 総合的なプログラミング歴: 3 ~ 4 年
   （大学 1 年時から授業で触っていました。授業外で本気で取り組み始めたのは大学 4 年生の春からです。）
