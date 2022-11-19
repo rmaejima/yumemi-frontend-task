@@ -19,6 +19,7 @@ export const CheckBox: React.FC<Props> = ({ label, ...props }) => {
 const StyledCheckBox = styled.label`
   display: flex;
   gap: 0.25rem;
+  cursor: pointer;
 
   input {
     appearance: none;
